@@ -3,6 +3,12 @@ from django.shortcuts   import render
 
 
 
-def index(request):
-    return render(request, 'base.html')
-    #return HttpResponse("<h1>Conjugarogue</h1>")
+def home(request):
+    return render(request, 'home.html')
+
+
+
+def player(request):
+    context = {'title': "Player's choice"}
+
+    return render(request, 'player.html', context)
