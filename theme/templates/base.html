@@ -10,20 +10,27 @@
     <title>{% block title %}ConjugaRogue{% endblock %}</title>
 
     <!-- load tailwind by static js file and configure it -->
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="{% static 'js/tailwind_css_3_3_5.min.js' %}"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
-            colors: {
-                'primary': '#1fb6ff',
-            }
         }
     </script>
+
+    <!-- load alpine js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- load htmx -->
+    <script src="https://unpkg.com/htmx.org@1.9.9" integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX" crossorigin="anonymous"></script>
 </head>
 
 <body class="dark">
-    <div id="content" class="dark:bg-gray-900 h-full">
+    <div id="content" class="dark:bg-gray-900 dark:text-white h-screen">
+        {% include "components/alert.html" with
+            message="Hello you"
+            color="green"
+        %}
+
         {% block content %}{% endblock %}
     </div>
 </body>
